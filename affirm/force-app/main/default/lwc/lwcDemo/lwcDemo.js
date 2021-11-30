@@ -9,6 +9,7 @@ export default class LwcDemo extends NavigationMixin(LightningElement) {
     error;
     btnVisible = false;
     accounts;
+    activeRow = null;
     
 
     @wire(getAccountList)
@@ -46,8 +47,18 @@ export default class LwcDemo extends NavigationMixin(LightningElement) {
     }
 
     addColor(event) {
-        event.target.classList.add('highlight');;
+        const isRefresh = true;
         this.selectedLineItem = event.currentTarget.dataset.item;
+        var row = this.template.querySelector(`[data-item="${this.selectedLineItem}"]`);
+        if(this.activeRow == null) {
+            this.activeRow = this.template.querySelector(`[data-item="${this.selectedLineItem}"]`);
+        }
+        if(row != this.activeRow){
+            row.className='rowhighlight';
+            this.activeRow.className = '';
+        }
         this.btnVisible = true;
+        this.activeRow = this.template.querySelector(`[data-item="${this.selectedLineItem}"]`);
     }
+    
 }
