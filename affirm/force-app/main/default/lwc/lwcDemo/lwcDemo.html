@@ -1,0 +1,32 @@
+<template>
+    <table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Name">Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Id">Id</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={accounts} for:item="acct">
+                <tr key={acct.Id} data-item={acct.Id} onclick={addColor}>
+                    <th scope="col">
+                        <div>{acct.Name}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{acct.Id}</div>
+                    </th>
+                </tr>  
+            </template>
+        </tbody>
+    </table>
+    <template if:true={btnVisible}>
+        <div>
+            <lightning-button variant="brand" label="Next" onclick={handleNavigate} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </template>
+    
+</template>
