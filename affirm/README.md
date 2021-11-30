@@ -1,18 +1,13 @@
-# Salesforce DX Project: Next Steps
+Trigger :
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+We could have achieved teh same requirement via Flow since it's the fture, but since Flow follows teh same pattern as trigger it doesn't gather teh cross object data so filtering out Account data from contact was tricky in Flow, so I have decided to go with the Trigger.
 
-## How Do You Plan to Deploy Your Changes?
+But if it was the Flow then we would have solved teh same ask with no code and no test class and easy to maintain.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Batch Job :
 
-## Configure Your Salesforce DX Project
+It was a simple trigger and nothing to discuss on the design. I have set teh scope to the 2000 for better performance.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+LWC:
 
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Calling the LWC from ltng:out (VF Page) was tricky since navigation service only works in lightning framework not in classic framework. I had to come up with the solution where I have encoded the new the LWC componnet and used it window replace function.
